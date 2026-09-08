@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 interface ImageWithFallbackProps {
   src: string;
@@ -29,6 +30,7 @@ export default function ImageWithFallback({
   priority = false,
   unoptimized = true,
 }: ImageWithFallbackProps) {
+  const t = useTranslations("common");
   // Jika src kosong/falsy, langsung tampilkan placeholder
   const [hasError, setHasError] = useState(!src);
 
@@ -56,7 +58,7 @@ export default function ImageWithFallback({
           </svg>
         </div>
         <p className="text-zinc-500 text-xs font-medium text-center px-4 leading-relaxed">
-          Ups! Gambarnya<br />belum ada&nbsp;:(
+          {t("imageErrorLine1")}<br />{t("imageErrorLine2")}
         </p>
       </div>
     );

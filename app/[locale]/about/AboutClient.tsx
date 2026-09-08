@@ -6,7 +6,8 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, AnimatePresence } from "motion/react";
-import "../animations.css";
+import "../../animations.css";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -50,10 +51,6 @@ const skills: string[] = [
   "Vercel",
   "Railway",
   "Supabase"
-
-
-
-
 ];
 
 
@@ -75,6 +72,8 @@ const timeline: TimelineItem[] = [
 
 
 export default function AboutClient() {
+  const t = useTranslations("about");
+
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -128,7 +127,7 @@ export default function AboutClient() {
                 >
                   <Image
                     src="/img/profile/fotoku.jpg"
-                    alt="Foto profil Aesar"
+                    alt={t("profilePhotoAlt")}
                     fill
                     unoptimized
                     className="object-cover"
@@ -175,7 +174,7 @@ export default function AboutClient() {
         >
           <div className="flex items-center gap-3 mb-8">
             <div className="w-8 h-0.5 bg-gradient-to-r from-red-500 to-red-600" />
-            <h2 className="text-2xl font-bold text-white">Biografi</h2>
+            <h2 className="text-2xl font-bold text-white">{t("biography")}</h2>
           </div>
 
           <div className="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 p-8 space-y-4">
@@ -204,7 +203,7 @@ export default function AboutClient() {
         >
           <div className="flex items-center gap-3 mb-8">
             <div className="w-8 h-0.5 bg-gradient-to-r from-red-500 to-red-600" />
-            <h2 className="text-2xl font-bold text-white">Skill &amp; Teknologi</h2>
+            <h2 className="text-2xl font-bold text-white">{t("skillsTitle")}</h2>
           </div>
 
           <div className="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 p-8">
@@ -234,7 +233,9 @@ export default function AboutClient() {
                 </div>
                 <p className="text-zinc-500 text-sm">
                   {/* TODO: isi array `skills` di bagian atas file ini */}
-                  Skills belum diisi — tambahkan ke array <code className="text-red-400 bg-red-500/10 px-1 rounded">skills</code> di file ini.
+                  {t("skillsEmptyLabel")}{" "}
+                  <code className="text-red-400 bg-red-500/10 px-1 rounded">{t("skillsEmptyCode")}</code>{" "}
+                  {t("skillsEmptyTrail")}
                 </p>
               </div>
             )}
@@ -251,7 +252,7 @@ export default function AboutClient() {
         >
           <div className="flex items-center gap-3 mb-8">
             <div className="w-8 h-0.5 bg-gradient-to-r from-red-500 to-red-600" />
-            <h2 className="text-2xl font-bold text-white">Pengalaman &amp; Pendidikan</h2>
+            <h2 className="text-2xl font-bold text-white">{t("timelineTitle")}</h2>
           </div>
 
           <AnimatePresence mode="wait">
@@ -309,7 +310,9 @@ export default function AboutClient() {
                   </div>
                   <p className="text-zinc-500 text-sm">
                     {/* TODO: isi array `timeline` di bagian atas file ini */}
-                    Timeline belum diisi — tambahkan ke array <code className="text-red-400 bg-red-500/10 px-1 rounded">timeline</code> di file ini.
+                    {t("timelineEmptyLabel")}{" "}
+                    <code className="text-red-400 bg-red-500/10 px-1 rounded">{t("timelineEmptyCode")}</code>{" "}
+                    {t("timelineEmptyTrail")}
                   </p>
                 </div>
               </motion.div>

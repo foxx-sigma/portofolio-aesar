@@ -1,0 +1,74 @@
+{
+  "nav": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "certificates": "Certificates",
+    "experience": "Experience",
+    "about": "About Me",
+    "toggleMenu": "Toggle menu",
+    "logoAlt": "Aesar's profile photo"
+  },
+  "common": {
+    "imageErrorLine1": "Oops! The image",
+    "imageErrorLine2": "isn't here yet :("
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "description": "An RPL student sharpening fullstack skills through real-world projects.",
+    "downloadCV": "Download CV",
+    "typing": {
+      "developer": "Junior Full-Stack Developer",
+      "student": "SMK Telkom Malang Student"
+    },
+    "photoAlt": "Aesar's photo — Fullstack Developer",
+    "ariaEmail": "Send via Email"
+  },
+  "about": {
+    "biography": "Biography",
+    "skillsTitle": "Skills & Technologies",
+    "timelineTitle": "Experience & Education",
+    "skillsEmptyLabel": "Skills not yet added — add them to the",
+    "skillsEmptyCode": "skills",
+    "skillsEmptyTrail": "array in this file.",
+    "timelineEmptyLabel": "Timeline not yet added — add entries to the",
+    "timelineEmptyCode": "timeline",
+    "timelineEmptyTrail": "array in this file.",
+    "profilePhotoAlt": "Aesar's profile photo"
+  },
+  "projects": {
+    "pageTitle": "Project List",
+    "viewProject": "View Project",
+    "viewRepo": "View Repo",
+    "back": "← Back",
+    "myRole": "My Role",
+    "aboutProject": "About This Project",
+    "techUsed": "Technologies Used",
+    "keyFeatures": "Key Features",
+    "noToolsAdded": "No tools added yet.",
+    "hoverView": "View Project"
+  },
+  "experience": {
+    "pageTitle": "Experience",
+    "viewDetail": "View Detail",
+    "back": "← Back",
+    "aboutActivity": "About This Activity",
+    "documentation": "Documentation",
+    "hoverView": "View Detail"
+  },
+  "certificates": {
+    "pageTitle": "Certificates",
+    "viewCertificate": "View Certificate",
+    "emptyTitle": "No certificates added yet",
+    "emptyDesc": "Certificates will appear here once added.",
+    "closeButton": "Close"
+  },
+  "metadata": {
+    "homeTitle": "Portfolio | Aesar",
+    "homeDesc": "Aesar's Portfolio — Fullstack Developer",
+    "aboutTitle": "About Me — Aesar",
+    "aboutDesc": "Get to know Aesar — a Front-End Developer passionate about building elegant, responsive web interfaces.",
+    "experienceTitle": "Experience — Aesar",
+    "experienceDesc": "A list of organizational activities and experiences during Aesar's time at SMK Telkom Malang.",
+    "notFound": "Not Found — Aesar"
+  }
+}

@@ -6,9 +6,10 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, AnimatePresence } from "motion/react";
-import { PengalamanItem } from "../../data/pengalaman";
-import ImageWithFallback from "../../components/ImageWithFallback";
-import "../../animations.css";
+import { PengalamanItem } from "../../../data/pengalaman";
+import ImageWithFallback from "../../../components/ImageWithFallback";
+import "../../../animations.css";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,6 +18,8 @@ interface PengalamanClientProps {
 }
 
 export default function PengalamanClient({ items }: PengalamanClientProps) {
+  const t = useTranslations("experience");
+
   const containerRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
 
@@ -51,7 +54,7 @@ export default function PengalamanClient({ items }: PengalamanClientProps) {
         <div ref={headerRef} className="text-center max-w-3xl mx-auto mb-16">
           <h1 className="text-5xl lg:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">
-              Pengalaman
+              {t("pageTitle")}
             </span>
           </h1>
         </div>
@@ -94,7 +97,7 @@ export default function PengalamanClient({ items }: PengalamanClientProps) {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                         <div className="absolute bottom-4 left-4 right-4">
                           <div className="flex items-center gap-2 text-white">
-                            <span className="text-sm font-medium">Lihat Detail</span>
+                            <span className="text-sm font-medium">{t("hoverView")}</span>
                             <svg
                               className="w-4 h-4 group-hover:translate-x-1 transition-transform"
                               fill="none"
@@ -159,7 +162,7 @@ export default function PengalamanClient({ items }: PengalamanClientProps) {
                           d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                         />
                       </svg>
-                      Lihat Detail
+                      {t("viewDetail")}
                     </Link>
                   </div>
                 </motion.div>

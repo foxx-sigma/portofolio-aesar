@@ -7,13 +7,16 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "motion/react";
-import "./animations.css";
-import TiltImage from "./components/TiltImage";
+import "../animations.css";
+import TiltImage from "../components/TiltImage";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 
 export default function Home() {
+  const t = useTranslations("hero");
+
   const containerRef = useRef<HTMLDivElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
@@ -111,15 +114,15 @@ export default function Home() {
               {/* Heading */}
               <div ref={headingRef} className="space-y-4">
                 <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight">
-                  Halo, aku
+                  {t("greeting")}
                   <span className="block bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">
                     Aesar
                   </span>
                   <TypeAnimation
                     sequence={[
-                      "Junior Full-Stack Developer",
+                      t("typing.developer"),
                       2000,
-                      "Siswa SMK Telkom Malang",
+                      t("typing.student"),
                       2000,
                     ]}
                     wrapper="span"
@@ -136,7 +139,7 @@ export default function Home() {
                 ref={descRef}
                 className="text-lg text-zinc-300 leading-relaxed max-w-xl"
               >
-                Siswa RPL yang lagi ngasah skill fullstack lewat project.
+                {t("description")}
               </p>
 
               {/* CTA Buttons */}
@@ -158,7 +161,7 @@ export default function Home() {
                     <svg className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                     </svg>
-                    Download CV
+                    {t("downloadCV")}
                   </a>
                 </motion.div>
               </div>
@@ -206,7 +209,7 @@ export default function Home() {
                   href="https://mail.google.com/mail/?view=cm&fs=1&to=aesar.hernando.dev@gmail.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Kirim via Email"
+                  aria-label={t("ariaEmail")}
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/15 hover:bg-white/10 hover:border-white/30 transition-colors duration-300"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.97 }}
@@ -234,7 +237,7 @@ export default function Home() {
                   {/* TiltImage — tilt 3D interaktif, GSAP entrance via imageRef parent */}
                   <TiltImage
                     src="/img/profile/foto-profesional.jpg"
-                    alt="Foto Aesar — Fullstack Developer"
+                    alt={t("photoAlt")}
                   />
                 </div>
               </div>

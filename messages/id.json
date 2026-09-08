@@ -1,0 +1,74 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "portfolio": "Portofolio",
+    "certificates": "Sertifikat",
+    "experience": "Pengalaman",
+    "about": "Tentang Saya",
+    "toggleMenu": "Buka/Tutup menu",
+    "logoAlt": "Foto profil Aesar"
+  },
+  "common": {
+    "imageErrorLine1": "Ups! Gambarnya",
+    "imageErrorLine2": "belum ada :("
+  },
+  "hero": {
+    "greeting": "Halo, aku",
+    "description": "Siswa RPL yang lagi ngasah skill fullstack lewat project.",
+    "downloadCV": "Download CV",
+    "typing": {
+      "developer": "Junior Full-Stack Developer",
+      "student": "Siswa SMK Telkom Malang"
+    },
+    "photoAlt": "Foto Aesar — Fullstack Developer",
+    "ariaEmail": "Kirim via Email"
+  },
+  "about": {
+    "biography": "Biografi",
+    "skillsTitle": "Skill & Teknologi",
+    "timelineTitle": "Pengalaman & Pendidikan",
+    "skillsEmptyLabel": "Skills belum diisi — tambahkan ke array",
+    "skillsEmptyCode": "skills",
+    "skillsEmptyTrail": "di file ini.",
+    "timelineEmptyLabel": "Timeline belum diisi — tambahkan ke array",
+    "timelineEmptyCode": "timeline",
+    "timelineEmptyTrail": "di file ini.",
+    "profilePhotoAlt": "Foto profil Aesar"
+  },
+  "projects": {
+    "pageTitle": "Daftar Project",
+    "viewProject": "Lihat Project",
+    "viewRepo": "Lihat Repo",
+    "back": "← Kembali",
+    "myRole": "Peran Saya",
+    "aboutProject": "Tentang Project",
+    "techUsed": "Teknologi yang Dipakai",
+    "keyFeatures": "Fitur Utama",
+    "noToolsAdded": "Tools belum ditambahkan.",
+    "hoverView": "Lihat Project"
+  },
+  "experience": {
+    "pageTitle": "Pengalaman",
+    "viewDetail": "Lihat Detail",
+    "back": "← Kembali",
+    "aboutActivity": "Tentang Kegiatan",
+    "documentation": "Dokumentasi",
+    "hoverView": "Lihat Detail"
+  },
+  "certificates": {
+    "pageTitle": "Sertifikat",
+    "viewCertificate": "Lihat Sertifikat",
+    "emptyTitle": "Belum ada sertifikat ditambahkan",
+    "emptyDesc": "Sertifikat akan tampil di sini setelah ditambahkan.",
+    "closeButton": "Tutup"
+  },
+  "metadata": {
+    "homeTitle": "Portofolio | Aesar",
+    "homeDesc": "Portofolio Aesar — Fullstack Developer",
+    "aboutTitle": "About Me — Aesar",
+    "aboutDesc": "Kenali lebih dekat Aesar — Front-End Developer yang bersemangat membangun antarmuka web yang elegan dan responsif.",
+    "experienceTitle": "Pengalaman — Aesar",
+    "experienceDesc": "Daftar kegiatan organisasi dan pengalaman Aesar selama bersekolah di SMK Telkom Malang.",
+    "notFound": "Tidak Ditemukan — Aesar"
+  }
+}

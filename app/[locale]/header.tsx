@@ -1,8 +1,6 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
 import { useState, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
@@ -10,22 +8,28 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, AnimatePresence } from "motion/react";
 import { SpotlightNavbar } from "@/components/ui/spotlight-navbar";
 import type { NavItem } from "@/components/ui/spotlight-navbar";
+import { useTranslations } from "next-intl";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { LocaleSwitcher } from "./LocaleSwitcher";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const navItems: NavItem[] = [
-  { href: "/", label: "Beranda" },
-  { href: "/portofolio/produk", label: "Portofolio" },
-  { href: "/portofolio/sertifikasi", label: "Sertifikat" },
-  { href: "/portofolio/pengalaman", label: "Pengalaman" },
-  { href: "/about", label: "Tentang Saya" },
+type NavTKey = "home" | "portfolio" | "certificates" | "experience" | "about";
+
+const navHrefs: { href: string; tKey: NavTKey }[] = [
+  { href: "/", tKey: "home" },
+  { href: "/portofolio/produk", tKey: "portfolio" },
+  { href: "/portofolio/sertifikasi", tKey: "certificates" },
+  { href: "/portofolio/pengalaman", tKey: "experience" },
+  { href: "/about", tKey: "about" },
 ];
 
 /** Cocokkan pathname ke index navItems.
  *  - "/" → exact match
  *  - path lain → startsWith
+ *  usePathname() from next-intl returns the path WITHOUT locale prefix.
  */
-function getActiveIndex(pathname: string): number {
+function getActiveIndex(pathname: string, navItems: NavItem[]): number {
   // Cek dari belakang (more specific dulu) supaya "/portofolio/produk"
   // tidak ikut match "/" atau "/portofolio" yang lebih luas
   for (let i = navItems.length - 1; i >= 0; i--) {
@@ -40,12 +44,18 @@ function getActiveIndex(pathname: string): number {
 }
 
 const Header = () => {
-  const pathname = usePathname();
-  const router = useRouter();
+  const t = useTranslations("nav");
+  const pathname = usePathname(); // locale-stripped path from next-intl
+  const router = useRouter();    // locale-aware router from next-intl
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
 
-  const activeIndex = getActiveIndex(pathname);
+  const navItems: NavItem[] = navHrefs.map((item) => ({
+    href: item.href,
+    label: t(item.tKey),
+  }));
+
+  const activeIndex = getActiveIndex(pathname, navItems);
 
   // GSAP: entrance animation + scroll blur
   useGSAP(
@@ -79,8 +89,8 @@ const Header = () => {
       });
 
       return () => {
-        ScrollTrigger.getAll().forEach((t) => {
-          if (t.vars.id === "header-scroll") t.kill();
+        ScrollTrigger.getAll().forEach((trigger) => {
+          if (trigger.vars.id === "header-scroll") trigger.kill();
         });
       };
     },
@@ -110,7 +120,7 @@ const Header = () => {
               <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-xl overflow-hidden shadow-lg shadow-red-500/30 group-hover:shadow-red-500/50 transition-shadow duration-300">
                 <Image
                   src="/img/profile/fotoku.jpg"
-                  alt="Aesar"
+                  alt={t("logoAlt")}
                   fill
                   unoptimized
                   className="object-cover"
@@ -137,56 +147,61 @@ const Header = () => {
             />
           </div>
 
-          {/* ── Hamburger — Mobile (<768px) ── */}
-          <motion.button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden w-9 h-9 flex items-center justify-center rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
-            aria-label="Toggle menu"
-            aria-expanded={isMenuOpen}
-            whileTap={{ scale: 0.9 }}
-          >
-            <AnimatePresence mode="wait" initial={false}>
-              {isMenuOpen ? (
-                <motion.svg
-                  key="close"
-                  className="w-5 h-5 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.18 }}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </motion.svg>
-              ) : (
-                <motion.svg
-                  key="open"
-                  className="w-5 h-5 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.18 }}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </motion.svg>
-              )}
-            </AnimatePresence>
-          </motion.button>
+          {/* ── Right-side controls: LocaleSwitcher (all) + Hamburger (mobile) ── */}
+          <div className="flex items-center gap-2">
+            <LocaleSwitcher />
+
+            {/* Hamburger — Mobile (<768px) only */}
+            <motion.button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden w-9 h-9 flex items-center justify-center rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+              aria-label={t("toggleMenu")}
+              aria-expanded={isMenuOpen}
+              whileTap={{ scale: 0.9 }}
+            >
+              <AnimatePresence mode="wait" initial={false}>
+                {isMenuOpen ? (
+                  <motion.svg
+                    key="close"
+                    className="w-5 h-5 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.18 }}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </motion.svg>
+                ) : (
+                  <motion.svg
+                    key="open"
+                    className="w-5 h-5 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    initial={{ rotate: 90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }}
+                    transition={{ duration: 0.18 }}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </motion.svg>
+                )}
+              </AnimatePresence>
+            </motion.button>
+          </div>
         </div>
 
         {/* ── Mobile Dropdown Menu ── */}
