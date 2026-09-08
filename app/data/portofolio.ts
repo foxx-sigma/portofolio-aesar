@@ -107,7 +107,7 @@ export const arrayPorto: PortofolioItem[] = [
     image: "/img/produk/pdam.png",
     description: "Sistem manajemen untuk PDAM yang dirancang untuk membantu dalam pengelolaan data pelanggan, tagihan, dan pembayaran.",
     role: "Frontend Developer",               
-    overview: "Sistem manajemen yang dirancang untuk membantu PDAM dalam pengelolaan data pelanggan, tagihan, dan pembayaran.",             
+    overview: "Sistem manajemen berbasis web yang dirancang untuk membantu PDAM dalam mengelola dan mengintegrasikan data pelanggan, tagihan, serta pembayaran secara terstruktur dalam satu platform. Sistem ini menyediakan fitur untuk pengelolaan data pelanggan, pencatatan dan pemantauan tagihan, pengelolaan transaksi pembayaran, serta penyajian informasi yang dibutuhkan dalam proses administrasi dan operasional. Dengan adanya sistem ini, proses pengelolaan data menjadi lebih terorganisir, mengurangi ketergantungan pada pencatatan manual, dan memudahkan pengguna dalam memantau status tagihan maupun pembayaran pelanggan secara lebih efisien.",             
     tools: ["NextJS 14", "Tailwind CSS", "Git/GitHub"],
     repoUrl: "https://github.com/foxx-sigma/pdam-app",        
     features: [
