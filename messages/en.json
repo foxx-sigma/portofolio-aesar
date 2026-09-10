@@ -33,7 +33,17 @@
     "timelineEmptyLabel": "Timeline not yet added — add entries to the",
     "timelineEmptyCode": "timeline",
     "timelineEmptyTrail": "array in this file.",
-    "profilePhotoAlt": "Aesar's profile photo"
+    "profilePhotoAlt": "Aesar's profile photo",
+    "heroBio": "Great at blaming CSS when it's actually my own fault, but still gets things done.",
+    "fullBio": [
+      "Hi, I'm Aesar, a Software Engineering (RPL) student at SMK Telkom Malang. It all started with pure curiosity about how websites could move on their own, and that curiosity turned into a habit of bouncing between frontend and backend code ever since.",
+      "The journey began with messy HTML and CSS experiments, moved on to JavaScript that was equal parts headache and addiction, and eventually landed on Next.js and NestJS to build web apps that actually work.",
+      "One of the most memorable projects: MokeT, a school digitalization website complete with an online ticketing system and a refund system. This project taught a lot of things that never came up in class — like designing a ticket flow that doesn't confuse users, and handling refund logic that turned out to be way trickier than it looked.",
+      "Outside of coding, still just a regular human who needs coffee, sometimes gets stuck on an error that turns out to be a missing semicolon, and keeps learning one bug at a time. Because for me, every bug fixed feels like a small level-up on the way to becoming a better developer."
+    ],
+    "timeline": [
+      { "year": "2024 - Present", "title": "SMK Telkom Malang", "description": "Software Engineering (RPL) student. Learning the fundamentals of programming and frontend/backend web development." }
+    ]
   },
   "projects": {
     "pageTitle": "Project List",

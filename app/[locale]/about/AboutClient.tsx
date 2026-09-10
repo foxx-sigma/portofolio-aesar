@@ -15,19 +15,7 @@ gsap.registerPlugin(ScrollTrigger);
 const heroData = {
   name: "Aesar",
   title: "Junior Full-Stack Developer",
-  bio: "Jago nyalahin CSS padahal salah sendiri, tapi tetep produktif.",
 };
-
-const fullBio: string[] = [
-  // TODO: isi paragraf pertama bio lengkap
-  "Perkenalkan, namaku Aesar, siswa RPL di SMK Telkom Malang yang awalnya cuma penasaran kenapa website bisa gerak-gerak sendiri, terus keterusan sampai sekarang bolak-balik ngoding frontend dan backend.",
-  // TODO: isi paragraf kedua (bisa dihapus jika hanya 1 paragraf)
-  "Perjalanan dimulai dari nyoba-nyoba HTML dan CSS yang berantakan, lanjut ke JavaScript yang bikin pusing tapi ketagihan, sampai akhirnya nyemplung ke Next.js dan NestJS buat bikin aplikasi web yang beneran jalan.",
-
-  "Salah satu project yang paling berkesan: MockeT, website digitalisasi sekolah lengkap dengan sistem tiket online dan sistem refund. Dari sini belajar banyak hal yang nggak diajarin di kelas, seperti gimana caranya bikin alur tiket yang nggak bikin bingung user, sampai gimana handle logic refund yang ternyata jauh lebih ribet dari kelihatannya.",
-
-  "Di luar ngoding, tetap manusia biasa yang butuh kopi, kadang stuck di error yang ternyata cuma salah titik koma, dan masih terus belajar satu error demi satu error. Karena buatku, tiap bug yang berhasil dibenerin itu kayak level-up kecil menuju jadi developer yang lebih jago."
-];
 
 
 const skills: string[] = [
@@ -61,18 +49,11 @@ interface TimelineItem {
 }
 
 
-const timeline: TimelineItem[] = [
-  {
-    year: "2024 - Sekarang",
-    title: "SMK Telkom Malang",
-    description: "Siswa jurusan Rekayasa Perangkat Lunak (RPL). Mempelajari dasar pemrograman, pengembangan web frontend dan backend."
-  },
-
-];
-
-
 export default function AboutClient() {
   const t = useTranslations("about");
+  const heroBio = t("heroBio");
+  const fullBio = t.raw("fullBio") as string[];
+  const timeline = t.raw("timeline") as TimelineItem[];
 
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
@@ -157,7 +138,7 @@ export default function AboutClient() {
 
               {/* Short Bio */}
               <p className="text-base text-zinc-300 leading-relaxed">
-                {heroData.bio} {/* TODO: isi bio singkat di heroData di atas */}
+                {heroBio}
               </p>
             </div>
 
