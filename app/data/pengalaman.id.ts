@@ -14,7 +14,7 @@ export interface PengalamanItem {
 export const arrayPengalamanID: PengalamanItem[] = [
   {
     id: 1,
-    nama: "Program Lead - Moklet Victory Program 2026",
+    nama: "Ketua Pelaksana - Moklet Victory Program 2026",
     tahun: "Maret 2026",
     gambar: "/img/pengalaman/saqu.jpeg",
     deskripsiSingkat:
@@ -30,7 +30,7 @@ export const arrayPengalamanID: PengalamanItem[] = [
   },
   {
     id: 2,
-    nama: "Public Health Outreach Volunteer - Puskesmas Rampal Celaket",
+    nama: "Relawan Kesehatan Masyarakat - Puskesmas Rampal Celaket",
     tahun: "Juni 2025",
     gambar: "/img/pengalaman/ramket.jpeg",
     deskripsiSingkat:
