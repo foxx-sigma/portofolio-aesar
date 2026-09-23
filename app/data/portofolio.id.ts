@@ -164,4 +164,51 @@ export const arrayPortoID: PortofolioItem[] = [
       },
     ],
   },
+{
+  id: 5,
+  name: "Loopera",
+  image: "/img/produk/Loopera.png",
+  description:
+    "Website Bank Sampah Digital yang mendigitalisasi pencatatan setoran sampah, poin, dan penukaran hadiah di unit bank sampah, menggantikan proses manual yang rawan salah hitung.",
+  role: "Full-Stack Developer",
+  overview: "Loopera adalah platform web full-stack untuk mengelola operasional bank sampah secara digital. Nasabah dapat menyetor sampah, memantau saldo poin, dan menukarnya dengan hadiah, sementara admin unit dapat mengelola data master, memverifikasi setoran, dan melihat rekapitulasi tonase serta estimasi pembayaran bulanan — semuanya dalam satu sistem yang transparan dan real-time.",
+  tools: ["NestJs","TypeScript","JWT Auth","Bcrypt","GSAP","Next.js", "Tailwind CSS", "Git/GitHub", "Supabase"],
+  repoUrl: "https://github.com/foxx-sigma/loopera-app",
+  features: [
+    {
+      title: "Autentikasi & registrasi",
+      description:
+        "Nasabah dan Admin mendaftar serta login secara terpisah, dengan akses ke halaman yang dibatasi otomatis sesuai role.",
+    },
+    {
+      title: "Manajemen katalog jenis sampah",
+      description:
+        "Admin mengatur jenis sampah beserta harga dan poin per kilogram yang jadi acuan setiap transaksi setoran.",
+    },
+    {
+      title: "Pengajuan setoran sampah",
+      description:
+        "Nasabah mengajukan setoran multi-item beserta foto, lengkap dengan estimasi poin otomatis.",
+    },
+    {
+      title: "Verifikasi & timbang ulang",
+      description: "Admin memeriksa dan menimbang ulang setoran nasabah sebelum poin resmi ditambahkan ke saldo.",
+    },
+    {
+      title: "Sistem poin otomatis",
+      description:
+        "Poin bertambah otomatis saat setoran diverifikasi, dan berkurang lewat transaksi atomik saat ditukar agar data tetap konsisten.",
+    },
+    {
+      title: "Riwayat & cetak bukti transaksi",
+      description:
+      "Nasabah dapat melihat histori setoran/penukaran dan mencetak nota sebagai bukti transaksi."
+    },
+    {
+      title: "Dashboard rekapitulasi bulanan",
+      description:
+      "Admin melihat ringkasan tonase, estimasi pembayaran, dan grafik transaksi per bulan untuk memantau performa unit."
+    }
+  ],
+}
 ];

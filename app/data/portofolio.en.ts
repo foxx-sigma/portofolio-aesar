@@ -151,4 +151,53 @@ export const arrayPortoEN: PortofolioItem[] = [
       },
     ],
   },
+  {
+    id: 5,
+    name: "Loopera",
+    image: "/img/produk/Loopera.png",
+    description:
+      "A Digital Waste Bank website that digitizes waste deposit recording, reward points, and prize redemption at waste bank units, replacing error-prone manual calculations.",
+    role: "Full-Stack Developer",
+    overview:
+      "Loopera is a full-stack web platform designed to manage waste bank operations digitally. Customers can deposit recyclable waste, monitor their reward points balance, and redeem rewards, while unit admins can manage master data, verify deposits, and view monthly tonnage summaries and estimated payouts — all within a transparent, real-time system.",
+    tools: ["NestJs", "TypeScript", "JWT Auth", "Bcrypt", "GSAP", "Next.js", "Tailwind CSS", "Git/GitHub", "Supabase"],
+    repoUrl: "https://github.com/foxx-sigma/loopera-app",
+    features: [
+      {
+        title: "Authentication & Registration",
+        description:
+          "Separate registration and login for Customers and Admins, with role-based route access controls.",
+      },
+      {
+        title: "Waste Catalog Management",
+        description:
+          "Admins configure waste categories along with price and points per kilogram as standard benchmarks for all deposit transactions.",
+      },
+      {
+        title: "Waste Deposit Submission",
+        description:
+          "Customers submit multi-item waste deposits with photos, complete with automatic point estimations.",
+      },
+      {
+        title: "Verification & Re-weighing",
+        description:
+          "Admins inspect and re-weigh customer deposits before points are officially credited to their balance.",
+      },
+      {
+        title: "Automated Points System",
+        description:
+          "Points are automatically credited upon deposit verification and deducted via atomic transactions during redemptions to ensure data consistency.",
+      },
+      {
+        title: "Transaction History & Receipt Printing",
+        description:
+          "Customers can view their deposit and redemption history and print transaction receipts.",
+      },
+      {
+        title: "Monthly Summary Dashboard",
+        description:
+          "Admins can monitor tonnage summaries, estimated payouts, and monthly transaction charts to evaluate unit performance.",
+      },
+    ],
+  },
 ];
